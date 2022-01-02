@@ -1,0 +1,6 @@
+FROM bitnami/minideb:%%TAG%%
+
+RUN \
+  apt-get -qq update && \
+  apt-get -qq install \
+    incron
