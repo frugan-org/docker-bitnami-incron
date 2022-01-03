@@ -5,4 +5,13 @@ RUN \
   apt-get -qq install \
     incron
 
-ENTRYPOINT [ "/usr/sbin/incrond" ]
+
+####
+
+COPY entrypoint.sh /
+
+#https://github.com/docker-library/postgres/issues/296#issuecomment-308735942
+RUN chmod +x /entrypoint.sh
+
+ENTRYPOINT [ "/entrypoint.sh" ]
+CMD [ "/usr/sbin/incrond", "-n" ]
