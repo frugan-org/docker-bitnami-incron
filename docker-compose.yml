@@ -1,11 +1,9 @@
-version: '3.9'
-
 services:
 
   incron:
     container_name: ${INCRON_NAME}
     build:
-      context: .
+      context: ./${INCRON_TAG}
       args:
         TAG: ${INCRON_TAG}
     restart: always

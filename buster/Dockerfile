@@ -1,12 +1,10 @@
 FROM bitnami/minideb:buster
 
-RUN \
-  apt-get -qq update && \
-  apt-get -qq install \
-    incron
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-
-####
+RUN install_packages \
+      incron \
+    ;
 
 COPY entrypoint.sh /
 
